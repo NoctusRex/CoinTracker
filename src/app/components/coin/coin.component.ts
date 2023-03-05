@@ -4,6 +4,7 @@ import { ActionSheetService } from '../../services/action-sheet.service';
 import { Coin } from '../../models/coin.model';
 import { CoinService } from '../../services/coin.service';
 import { concatMap } from 'rxjs';
+import { ToastService } from '../../services/toast.service';
 
 @Component({
   templateUrl: './coin.component.html',
@@ -22,7 +23,8 @@ export class CoinComponent {
 
   constructor(
     private actionSheetService: ActionSheetService,
-    private coinService: CoinService
+    private coinService: CoinService,
+    private toastService: ToastService
   ) {}
 
   onFoundChange(): void {
@@ -41,8 +43,11 @@ export class CoinComponent {
         )
         .subscribe();
     } else {
-      this.coin.foundTimestamp = moment().toISOString(true);
+      this.toastService.show('Marked coin as found.', {
+        color: 'success',
+      });
 
+      this.coin.foundTimestamp = moment().toISOString(true);
       this.coinService.update$(this.coin).subscribe();
     }
   }

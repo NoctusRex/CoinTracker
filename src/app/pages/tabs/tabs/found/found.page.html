@@ -6,6 +6,22 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
+  <ng-template #noValues>
+    <br>
+    <div class="ion-text-center">
+      <ion-text>
+        <strong>
+          No coins marked as found
+        </strong>
+      </ion-text>
+    </div>
+  </ng-template>
 
+  <cdk-virtual-scroll-viewport itemSize="71" minBufferPx="500" maxBufferPx="1000"
+    *ngIf="((coins$ | async)?.length ?? 0 > 0); else noValues">
+    <ion-list>
+      <app-coin *cdkVirtualFor="let coin of (coins$ | async)" [coin]="coin"></app-coin>
+    </ion-list>
+  </cdk-virtual-scroll-viewport>
 </ion-content>

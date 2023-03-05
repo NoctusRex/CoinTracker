@@ -31,7 +31,7 @@ export class CoinService {
       isEmpty(this._values$.value)
         ? this.refresh$()
         : of(null).pipe(mapToVoid())
-    ).pipe(concatMap(() => this._values$));
+    ).pipe(concatMap(() => this._values$.asObservable()));
   }
 
   refresh$(): Observable<void> {
