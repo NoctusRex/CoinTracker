@@ -1,0 +1,8 @@
+<ion-item class="ion-no-margin ion-no-padding" lines="none">
+    <ion-label>
+        <input type="file" accept=".txt" (change)="onChange($event)">
+    </ion-label>
+    <ion-button slot="start" (click)="onUpload()" [disabled]="!file">
+        <ion-icon slot="icon-only" name="cloud-upload"></ion-icon>
+    </ion-button>
+</ion-item>

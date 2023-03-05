@@ -1,0 +1,38 @@
+<ion-item button (click)="onFoundChange()">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-text *ngIf="!coin.memorialText">
+                    <ion-icon name="logo-euro" [color]="buttonColor"></ion-icon>
+                    &#x200b;{{ coin.value }}
+                </ion-text>
+                <ion-text *ngIf="coin.memorialText">
+                    <ion-icon name="logo-euro" [color]="buttonColor"></ion-icon>
+                    &#x200b;{{ coin.memorialText }}
+                </ion-text>
+            </ion-col>
+            <ion-col>
+                <ion-text>
+                    <ion-icon name="calendar" [color]="buttonColor"></ion-icon>
+                    &#x200b;{{ coin.year }}
+                </ion-text>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-text>
+                    <ion-icon name="home" [color]="buttonColor"></ion-icon>
+                    &#x200b;{{ coin.embossingPlace }}
+                </ion-text>
+            </ion-col>
+            <ion-col>
+                <ion-text>
+                    <ion-icon name="earth" [color]="buttonColor"></ion-icon>
+                    &#x200b;{{ coin.country }}
+                </ion-text>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-item>

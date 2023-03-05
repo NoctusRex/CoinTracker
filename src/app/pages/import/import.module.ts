@@ -2,9 +2,9 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SearchPage } from './search.page';
+import { ImportPage } from './import.page';
 
-import { SearchPageRoutingModule } from './search-routing.module';
+import { ImportPageRoutingModule } from './import-routing.module';
 import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
@@ -12,9 +12,9 @@ import { ComponentsModule } from 'src/app/components/components.module';
     IonicModule,
     CommonModule,
     FormsModule,
-    SearchPageRoutingModule,
+    ImportPageRoutingModule,
     ComponentsModule,
   ],
-  declarations: [SearchPage],
+  declarations: [ImportPage],
 })
-export class SearchPageModule {}
+export class ImportPageModule {}

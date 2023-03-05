@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Import
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Import File
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <app-file-upload (fileUploaded)="restore($event)"></app-file-upload>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
