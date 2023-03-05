@@ -6,5 +6,16 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item *ngFor="let key of keys" button detail="true" (click)="goToSearch(key)">
+            <ion-label>{{ key }}</ion-label><ion-label slot="end">{{ coins[key].length }}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

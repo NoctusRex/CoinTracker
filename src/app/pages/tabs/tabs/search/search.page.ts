@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ViewDidEnter } from '@ionic/angular';
 import { cloneDeep, isEmpty, values } from 'lodash';
 import { map, Observable, take } from 'rxjs';
 import { Coin } from 'src/app/models/coin.model';
@@ -10,14 +11,21 @@ import { CoinService } from 'src/app/services/coin.service';
   templateUrl: 'search.page.html',
   styleUrls: ['./search.style.scss'],
 })
-export class SearchPage implements OnInit {
+export class SearchPage implements ViewDidEnter {
   coins$!: Observable<Array<Coin>>;
   filter: string = '';
 
-  constructor(private router: Router, private coinService: CoinService) {}
+  constructor(
+    private router: Router,
+    private coinService: CoinService,
+    private route: ActivatedRoute
+  ) {}
+  ionViewDidEnter(): void {
+    this.route.queryParamMap.subscribe((params) => {
+      this.filter = params.get('filter') ?? '';
 
-  ngOnInit(): void {
-    this.refresh();
+      this.refresh();
+    });
   }
 
   refresh(): void {

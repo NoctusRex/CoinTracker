@@ -22,6 +22,8 @@
       <ion-item>
         <ion-icon slot="start" name="search"></ion-icon>
         <ion-input type="text" [(ngModel)]="filter" (ionChange)="refresh()"></ion-input>
+        <ion-button slot="end" color="dark" (click)="filter=''"><ion-icon slot="icon-only"
+            name="close"></ion-icon></ion-button>
       </ion-item>
     </ion-card-content>
   </ion-card>
@@ -37,7 +39,7 @@
   </ng-template>
 
   <cdk-virtual-scroll-viewport itemSize="71" minBufferPx="500" maxBufferPx="1000"
-    *ngIf="((coins$ | async)?.length ?? 0 > 0); else noValues">
+    *ngIf="((coins$ | async)?.length ?? 0 > 0); else noValues" trackyBy="id">
     <ion-list>
       <app-coin *cdkVirtualFor="let coin of (coins$ | async)" [coin]="coin"></app-coin>
     </ion-list>
