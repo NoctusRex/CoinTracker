@@ -122,6 +122,7 @@ export class CoinService {
         return EMPTY;
       }),
       concatMap((coins) => this.set$(coins)),
+      concatMap(() => this.refresh$()),
       tap(() =>
         this.toastService.show('Import completed', { color: 'success' })
       ),

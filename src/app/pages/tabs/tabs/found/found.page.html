@@ -19,7 +19,7 @@
     </div>
   </ng-template>
 
-  <cdk-virtual-scroll-viewport itemSize="71" minBufferPx="500" maxBufferPx="1000"
+  <cdk-virtual-scroll-viewport itemSize="71" minBufferPx="500" maxBufferPx="710"
     *ngIf="((coins$ | async)?.length ?? 0 > 0); else noValues">
     <ion-list>
       <app-coin *cdkVirtualFor="let coin of (coins$ | async)" [coin]="coin"></app-coin>

@@ -10,7 +10,6 @@ export class ImportPage {
   constructor(private router: Router, private importService: CoinService) {}
 
   restore(file: File): void {
-    console.warn(file);
     this.importService.import$(file).subscribe();
   }
 

@@ -1,4 +1,4 @@
-<ion-item button (click)="onFoundChange()">
+<ion-item button (click)="onFoundChange()" line="full">
     <ion-grid>
         <ion-row>
             <ion-col>
@@ -21,7 +21,7 @@
 
         <ion-row>
             <ion-col>
-                <ion-text>
+                <ion-text *ngIf="coin.embossingPlace">
                     <ion-icon name="home" [color]="buttonColor"></ion-icon>
                     &#x200b;{{ coin.embossingPlace }}
                 </ion-text>
